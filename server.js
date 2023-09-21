@@ -15,9 +15,13 @@ app.use((req, res, next) => {
 });
 app.use(express.json());
 
-app.post("/friends", friendsController.postFriends);
-app.get("/friends", friendsController.getFriends);
-app.get("/friends/:fId", friendsController.getFriend);
+const friendsRouter = express.Router();
+
+friendsRouter.post("/", friendsController.postFriends);
+friendsRouter.get("/", friendsController.getFriends);
+friendsRouter.get("/:fId", friendsController.getFriend);
+
+app.use("/friends", friendsRouter);
 
 app.get("/messages", messagesController.getMessages);
 app.post("/messages", messagesController.postMessages);
