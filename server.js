@@ -13,6 +13,8 @@ app.use((req, res, next) => {
   const delta = Date.now() - start;
   console.log(`${req.method} , ${req.url} , ${req.baseUrl} , ${delta}ms`);
 });
+
+app.use("/site", express.static("public"));
 app.use(express.json());
 
 app.use("/friends", friendsRouter);
