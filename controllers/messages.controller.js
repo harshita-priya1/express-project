@@ -1,5 +1,5 @@
 function getMessages(req, res) {
-  res.send("<ul><li>HIIIII!!!</li></ul>");
+  return res.send("<ul><li>HIIIII!!!</li></ul>");
 }
 function postMessages(req, res) {
   console.log("Updating...");
